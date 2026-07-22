@@ -1,0 +1,28 @@
+{
+  "forms": {
+    "estimateForm": {
+      "name": "Breaking Ground Estimate Request",
+      "formspreeId": "REPLACE_WITH_FORMSPREE_ID",
+      "endpoint": "https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID",
+      "fields": {
+        "name": { "type": "text", "required": true },
+        "phone": { "type": "text", "required": true },
+        "email": { "type": "email", "required": false },
+        "job_location": { "type": "text", "required": true },
+        "service": { "type": "text", "required": true },
+        "message": { "type": "text", "required": false },
+        "access_notes": { "type": "text", "required": false },
+        "can_text_photos": { "type": "text", "required": true },
+        "best_time": { "type": "text", "required": false },
+        "photos": { "type": "file", "required": false },
+        "page": { "type": "text", "required": false }
+      },
+      "actions": [
+        {
+          "type": "email",
+          "to": "info@breakinggroundlsad.com"
+        }
+      ]
+    }
+  }
+}

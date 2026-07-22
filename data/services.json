@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "demolition",
+    "path": "/demolition/",
+    "navLabel": "Demolition",
+    "title": "Small Structure Demolition in Central Florida | Breaking Ground",
+    "h1": "Small Structure Demolition & Removal",
+    "meta": "Mobile homes, sheds, barns, and light-structure demolition and debris removal across Central Florida. Free estimates from Breaking Ground in Kathleen.",
+    "eyebrow": "Demolition Services",
+    "heroImage": "/assets/images/projects/IMG_8345-scaled.jpg",
+    "priority": 1,
+    "focus": "demo"
+  },
+  {
+    "slug": "mobile-home-demolition",
+    "path": "/mobile-home-demolition/",
+    "navLabel": "Mobile Home Demolition",
+    "title": "Mobile Home Demolition in Florida | Breaking Ground",
+    "h1": "Mobile Home & Manufactured Home Demolition",
+    "meta": "Singlewide and doublewide mobile home demolition, hauling, and lot cleanup for Florida property owners. Owner-operated crews based in Kathleen.",
+    "eyebrow": "Priority Service",
+    "heroImage": "/assets/images/projects/IMG_8286-scaled.jpg",
+    "priority": 1,
+    "focus": "demo"
+  },
+  {
+    "slug": "shed-barn-removal",
+    "path": "/shed-barn-removal/",
+    "navLabel": "Shed & Barn Removal",
+    "title": "Shed & Barn Removal in Central Florida | Breaking Ground",
+    "h1": "Shed, Barn & Outbuilding Removal",
+    "meta": "Remove outdated sheds, barns, and outbuildings with debris hauling and site cleanup. Serving Polk County and Central Florida.",
+    "eyebrow": "Structure Removal",
+    "heroImage": "/assets/images/projects/IMG_8038-scaled.jpg",
+    "priority": 1,
+    "focus": "demo"
+  },
+  {
+    "slug": "land-clearing",
+    "path": "/land-clearing/",
+    "navLabel": "Land Clearing",
+    "title": "Land Clearing in Kathleen & Lakeland FL | Breaking Ground",
+    "h1": "Land Clearing & Lot Preparation",
+    "meta": "Residential and light-commercial land clearing, brush removal, and build-ready lot prep in Polk County and nearby Central Florida.",
+    "eyebrow": "Land Services",
+    "heroImage": "/assets/images/projects/IMG_0249-scaled.jpg",
+    "priority": 2,
+    "focus": "clear"
+  },
+  {
+    "slug": "tree-removal",
+    "path": "/tree-removal/",
+    "navLabel": "Tree Removal",
+    "title": "Tree Removal in Lakeland & Polk County FL | Breaking Ground",
+    "h1": "Tree Removal & Storm Tree Cleanup",
+    "meta": "Tree removal, fallen-tree cleanup, and equipment-assisted takedowns for Central Florida properties. Call Breaking Ground for an estimate.",
+    "eyebrow": "Tree Services",
+    "heroImage": "/assets/images/projects/IMG_8145-scaled.jpg",
+    "priority": 2,
+    "focus": "clear"
+  },
+  {
+    "slug": "stump-removal",
+    "path": "/stump-removal/",
+    "navLabel": "Stump Removal",
+    "title": "Stump Removal & Excavation in Lakeland FL | Breaking Ground",
+    "h1": "Stump Removal & Root Excavation",
+    "meta": "Stump excavation and removal that goes beyond grinding — clear roots and restore usable yard space in Lakeland and Polk County.",
+    "eyebrow": "Stump Services",
+    "heroImage": "/assets/images/projects/IMG_8451-scaled.jpg",
+    "priority": 2,
+    "focus": "clear"
+  },
+  {
+    "slug": "pond-drainage",
+    "path": "/pond-drainage/",
+    "navLabel": "Pond & Drainage",
+    "title": "Pond Cleanup & Drainage Earthwork | Breaking Ground",
+    "h1": "Pond Cleanup & Drainage-Related Earthwork",
+    "meta": "Pond cleanup, ditch clearing, swale work, and drainage-related excavation support subject to site conditions and permitting.",
+    "eyebrow": "Site Water Work",
+    "heroImage": "/assets/images/projects/IMG_8416-scaled.jpg",
+    "priority": 3,
+    "focus": "clear"
+  },
+  {
+    "slug": "grading-site-preparation",
+    "path": "/grading-site-preparation/",
+    "navLabel": "Grading & Site Prep",
+    "title": "Grading & Site Preparation in Central Florida | Breaking Ground",
+    "h1": "Grading & Site Preparation",
+    "meta": "Rough grading, fill placement, driveway prep, and build-pad support after clearing or demolition across Central Florida.",
+    "eyebrow": "Earthwork",
+    "heroImage": "/assets/images/projects/IMG_8495-scaled.jpg",
+    "priority": 2,
+    "focus": "clear"
+  },
+  {
+    "slug": "storm-debris-cleanup",
+    "path": "/storm-debris-cleanup/",
+    "navLabel": "Storm Cleanup",
+    "title": "Storm Debris Cleanup in Central Florida | Breaking Ground",
+    "h1": "Storm & Debris Cleanup",
+    "meta": "Hurricane and storm debris removal, fallen trees, and property cleanup for Polk County and Central Florida homeowners.",
+    "eyebrow": "Emergency Response",
+    "heroImage": "/assets/images/projects/IMG_9083-scaled.jpg",
+    "priority": 2,
+    "focus": "clear"
+  }
+]

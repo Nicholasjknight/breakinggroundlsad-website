@@ -1,0 +1,29 @@
+{
+  "domain": "https://breakinggroundlsad.com",
+  "name": "Breaking Ground Land Services and Demolition",
+  "shortName": "Breaking Ground",
+  "legalName": "Breaking Ground Land Services and Demolition LLC",
+  "phone": "(863) 899-9717",
+  "phoneTel": "+18638999717",
+  "email": "info@breakinggroundlsad.com",
+  "foundingYear": "2024",
+  "address": {
+    "streetAddress": "4633 Clayton Road",
+    "addressLocality": "Kathleen",
+    "addressRegion": "FL",
+    "postalCode": "33849",
+    "addressCountry": "US"
+  },
+  "geo": { "latitude": "28.1214", "longitude": "-82.0487" },
+  "hours": "Mo-Sa 07:00-18:00",
+  "priceRange": "$$",
+  "formspreeEndpoint": "https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID",
+  "owners": ["Guy S. McMillen", "Andrew S. McMillen"],
+  "tagline": "Owner-operated demolition, land clearing, and site work across Central Florida",
+  "areaServedSummary": "Based in Kathleen serving Central Florida; larger demolition and site jobs considered statewide by scope.",
+  "logo": "/assets/images/brand/Logo-Square-scaled-1024x1024.png",
+  "defaultOgImage": "/assets/images/hero/IMG_8345-scaled.jpg",
+  "social": {
+    "facebook": "https://www.facebook.com/"
+  }
+}

@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+node_modules/
+__pycache__/
+*.pyc
+.website-audit-latest.json
+.gsc-audit-latest.json
+website-audit/
+gsc-audit/
