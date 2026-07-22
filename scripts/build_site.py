@@ -17,6 +17,7 @@ PROJECTS = json.loads((DATA / "projects.json").read_text(encoding="utf-8"))
 AREAS = json.loads((DATA / "service-areas.json").read_text(encoding="utf-8"))
 FORM = SITE.get("formspreeEndpoint", "https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID")
 DOMAIN = SITE["domain"].rstrip("/")
+BASE = (SITE.get("siteBase") or "").rstrip("/")
 PHONE = SITE["phone"]
 PHONE_TEL = SITE["phoneTel"]
 EMAIL = SITE["email"]
@@ -27,6 +28,13 @@ LOGO = SITE["logo"]
 OG = SITE["defaultOgImage"]
 
 
+def p(path: str) -> str:
+    """Prefix siteBase for GitHub project Pages preview; empty on custom domain."""
+    if not path.startswith("/"):
+        path = "/" + path
+    return f"{BASE}{path}" if BASE else path
+
+
 def esc(s: str) -> str:
     return html.escape(s, quote=True)
 
@@ -34,6 +42,18 @@ def esc(s: str) -> str:
 def write(rel: str, content: str) -> None:
     path = ROOT / rel
     path.parent.mkdir(parents=True, exist_ok=True)
+    if BASE and rel.endswith((".html",)):
+        # Rewrite root-absolute URLs for project Pages hosting
+        content = content.replace('href="/', f'href="{BASE}/')
+        content = content.replace("href='/", f"href='{BASE}/")
+        content = content.replace('src="/', f'src="{BASE}/')
+        content = content.replace("src='/", f"src='{BASE}/")
+        content = content.replace('content="/', f'content="{BASE}/')
+        content = content.replace('url(/', f"url({BASE}/")
+        content = content.replace(
+            'action="https://formspree.io',
+            'action="https://formspree.io',
+        )
     path.write_text(content, encoding="utf-8")
     print("wrote", rel)
 
@@ -1053,6 +1073,19 @@ No CRM, GBP automation, or dynamic review widgets in Phase 1.
     )
 
 
+def apply_base_to_chrome() -> None:
+    """Rewrite root-absolute paths in shared chrome for project Pages."""
+    if not BASE:
+        return
+    for name in ("header.html", "footer.html"):
+        path = ROOT / name
+        text = path.read_text(encoding="utf-8")
+        text = text.replace('href="/', f'href="{BASE}/')
+        text = text.replace('src="/', f'src="{BASE}/')
+        path.write_text(text, encoding="utf-8")
+        print("rewrote", name)
+
+
 def main() -> None:
     build_home()
     build_about()
@@ -1067,7 +1100,10 @@ def main() -> None:
     build_redirects()
     build_robots_llms()
     build_docs()
+    apply_base_to_chrome()
     print("DONE")
+    if BASE:
+        print(f"Preview base: {BASE}/  →  https://nicholasjknight.github.io{BASE}/")
 
 
 if __name__ == "__main__":
