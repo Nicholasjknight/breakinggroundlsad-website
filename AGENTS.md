@@ -2,8 +2,9 @@
 
 **Domain:** `breakinggroundlsad.com`  
 **Site folder:** `E:\All Client Websites\Breaking Ground Land Services and Demolition`  
-**GitHub (source of truth):** `Breaking-Ground-LSAD/breakinggroundlsad-website`  
-**Pages:** `https://breakinggroundlsad.com/` (org GitHub Pages)
+**GitHub (source of truth):** `Nicholasjknight/breakinggroundlsad-website`  
+**Intended org (transfer when created):** `Breaking-Ground-LSAD/breakinggroundlsad-website`  
+**Pages:** GitHub Pages → custom domain `breakinggroundlsad.com` (see LAUNCH-CHECKLIST.md)
 
 ## Public contact
 
