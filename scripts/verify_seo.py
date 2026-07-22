@@ -25,7 +25,6 @@ REQUIRED = [
     "payment-deposit-policy/index.html",
     "sitemap.xml",
     "robots.txt",
-    "CNAME",
     "header.html",
     "footer.html",
 ]

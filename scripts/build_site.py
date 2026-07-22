@@ -171,7 +171,7 @@ def head(
   <meta name="geo.placename" content="Kathleen, Florida" />
   <meta name="geo.position" content="{SITE['geo']['latitude']};{SITE['geo']['longitude']}" />
   <meta name="ICBM" content="{SITE['geo']['latitude']}, {SITE['geo']['longitude']}" />
-  <meta name="theme-color" content="#241811" />
+  <meta name="theme-color" content="#0f172a" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{esc(can)}" />
   <meta property="og:title" content="{esc(title)}" />
@@ -219,6 +219,46 @@ def page_hero(h1: str, crumbs_html: str, image: str, lead: str = "") -> str:
       {lead_html}
     </div>
   </section>"""
+
+
+def related_links(current: str = "") -> str:
+    """Dense internal linking block used across content pages."""
+    service_links = [
+        ("/demolition/", "Demolition"),
+        ("/mobile-home-demolition/", "Mobile Home Demolition"),
+        ("/shed-barn-removal/", "Shed & Barn Removal"),
+        ("/land-clearing/", "Land Clearing"),
+        ("/tree-removal/", "Tree Removal"),
+        ("/stump-removal/", "Stump Removal"),
+        ("/pond-drainage/", "Pond & Drainage"),
+        ("/grading-site-preparation/", "Grading & Site Prep"),
+        ("/storm-debris-cleanup/", "Storm Cleanup"),
+    ]
+    extra_links = [
+        ("/projects/", "Project Gallery"),
+        ("/pricing/", "Pricing Guide"),
+        ("/service-areas/", "Service Areas"),
+        ("/areas/kathleen-fl/", "Kathleen"),
+        ("/areas/lakeland-fl/", "Lakeland"),
+        ("/areas/plant-city-fl/", "Plant City"),
+        ("/areas/brooksville-fl/", "Brooksville"),
+        ("/areas/tampa-fl/", "Tampa"),
+        ("/about/", "About Us"),
+        ("/contact/", "Request Estimate"),
+    ]
+    items = []
+    for href, label in service_links + extra_links:
+        if href.rstrip("/") == current.rstrip("/"):
+            continue
+        items.append(f'<a href="{esc(href)}">{esc(label)}</a>')
+    grid = "\n".join(f"<div>{a}</div>" for a in items[:18])
+    return f"""
+<aside class="related-links reveal">
+  <h3>Explore related pages</h3>
+  <p>Jump to another service, city, or project page on this site.</p>
+  <div class="related-links-grid">{grid}</div>
+</aside>
+"""
 
 
 def cta_band(headline: str, blurb: str, service: str = "") -> str:
@@ -363,7 +403,8 @@ def service_body(svc: dict) -> str:
 <h3>Why property owners call {SHORT}</h3>
 <p>Direct owner communication, real project photography, and a demolition-first mindset for the jobs Florida lots actually need — mobile homes, sheds, storm messes, and clearing that supports the next use of the land. Call <a href="tel:{PHONE_TEL}">{esc(PHONE)}</a> or use the form below.</p>
 <p>Every estimate includes a clear description of what is included: teardown or clearing, debris handling, and what is excluded (such as hazardous material abatement or engineered design). That clarity protects both sides and keeps projects moving.</p>
-<p>If your property needs both structure removal and land clearing, we can often combine scopes in one mobilization — reducing duplicate mobilizations and disposal trips. Ask about bundling when you request your estimate.</p>
+<p>If your property needs both structure removal and land clearing, we can often combine scopes in one mobilization — reducing duplicate mobilizations and disposal trips. Ask about bundling when you request your estimate on our <a href="/contact/">contact page</a>, review <a href="/pricing/">pricing ranges</a>, or browse the <a href="/projects/">project gallery</a>.</p>
+<p>Common next steps from this page: <a href="/mobile-home-demolition/">mobile home demolition</a>, <a href="/land-clearing/">land clearing</a>, <a href="/stump-removal/">stump removal</a>, <a href="/areas/lakeland-fl/">Lakeland</a>, <a href="/areas/kathleen-fl/">Kathleen</a>, and <a href="/service-areas/">all service areas</a>.</p>
 {faqs}
 """
     return base + expand
@@ -478,12 +519,13 @@ def build_home() -> None:
       <div class="media-stage reveal"><img src="/assets/images/projects/IMG_8345-scaled.jpg" alt="Demolition and site work in progress" /></div>
     </div>
   </section>
-  <section class="section-pad" style="background:#f0e8dc;">
+  <section class="section-pad" style="background:#e2e8f0;">
     <div class="container">
       <p class="section-eyebrow">Services</p>
       <h2>What we take on</h2>
       <div class="service-grid">{tiles}</div>
-      <p style="margin-top:1.5rem;"><a class="btn btn-dark" href="/services/">View all services</a></p>
+      <p style="margin-top:1.5rem;"><a class="btn btn-dark" href="/services/">View all services</a>
+      <a class="btn btn-primary" href="/mobile-home-demolition/" style="margin-left:0.5rem;">Mobile Home Demolition</a></p>
     </div>
   </section>
   <section class="section-pad">
@@ -491,7 +533,9 @@ def build_home() -> None:
       <p class="section-eyebrow">Projects</p>
       <h2>Recent work</h2>
       <div class="project-grid">{projects}</div>
-      <p style="margin-top:1.5rem;"><a class="btn btn-dark" href="/projects/">Full project gallery</a></p>
+      <p style="margin-top:1.5rem;"><a class="btn btn-dark" href="/projects/">Full project gallery</a>
+      <a class="btn btn-primary" href="/areas/lakeland-fl/" style="margin-left:0.5rem;">Lakeland service area</a></p>
+      {related_links("/")}
     </div>
   </section>
 """
@@ -523,7 +567,7 @@ def build_about() -> None:
 </div>
 <div class="media-stage reveal"><img src="/assets/images/brand/Logo-Square-scaled-1024x1024.png" alt="Breaking Ground logo" style="object-fit:contain;background:#241811;padding:2rem;" /></div>
 </div></section>
-""" + cta_band("Talk with the owners", "Call or send project photos for a free estimate.", "Demolition")
+""" + related_links("/about/") + cta_band("Talk with the owners", "Call or send project photos for a free estimate.", "Demolition")
     write(
         "about/index.html",
         head(
@@ -571,7 +615,7 @@ def build_services_hub() -> None:
     )
     body = f"""
 {page_hero("Services", crumb([("Home","/"),("Services","/services/")]), "/assets/images/projects/IMG_8495-scaled.jpg", "Demolition first — clearing and site work when the lot needs more.")}
-<section class="section-pad"><div class="container"><div class="service-grid">{cards}</div></div></section>
+<section class="section-pad"><div class="container"><div class="service-grid">{cards}</div>{related_links("/services/")}</div></section>
 """ + cta_band("Not sure which service fits?", "Describe the property and we will help scope it.", "Demolition")
     write(
         "services/index.html",
@@ -614,7 +658,7 @@ def build_service_pages() -> None:
         body = f"""
 {page_hero(s["h1"], crumb([("Home","/"),("Services","/services/"),(s["navLabel"], s["path"])]), s["heroImage"], s["meta"])}
 <section class="section-pad"><div class="container split">
-<div class="prose reveal">{service_body(s)}</div>
+<div class="prose reveal">{service_body(s)}{related_links(s["path"])}</div>
 <div class="media-stage reveal"><img src="{esc(s["heroImage"])}" alt="{esc(s["h1"])}" /></div>
 </div></section>
 """ + cta_band(f"Get a {s['navLabel'].lower()} estimate", "Share photos and your city for a faster response.", s["navLabel"])
@@ -649,7 +693,7 @@ def build_projects() -> None:
             breadcrumbs=[("Home", "/"), ("Projects", "/projects/")],
         )
         + page_hero("Projects", crumb([("Home", "/"), ("Projects", "/projects/")]), PROJECTS[0]["image"])
-        + f'<section class="section-pad"><div class="container"><div class="project-grid">{cards}</div></div></section>'
+        + f'<section class="section-pad"><div class="container"><div class="project-grid">{cards}</div>{related_links("/projects/")}</div></section>'
         + cta_band("Have a similar property?", "Send photos for a free estimate.")
         + foot(),
     )
@@ -666,7 +710,9 @@ def build_projects() -> None:
 <p>{esc(p["summary"])}</p>
 <h3>Challenge</h3><p>{esc(p["challenge"])}</p>
 <p>This project is part of our public portfolio for Breaking Ground Land Services and Demolition. Results vary by site access, vegetation, structure type, and disposal requirements.</p>
-<p><a class="btn btn-primary" href="/contact/">Request a similar estimate</a></p>
+<p><a class="btn btn-primary" href="/contact/">Request a similar estimate</a>
+<a class="btn btn-dark" href="{esc(p["servicePath"])}" style="margin-left:0.5rem;">{esc(p["service"])} service</a></p>
+{related_links(p["path"])}
 </div>
 <div>{gallery}</div>
 </div></section>
@@ -712,7 +758,7 @@ def build_pricing() -> None:
 <li>Your end goal (rebuild, sell, clean up)</li>
 </ul>
 </div></section>
-""" + cta_band("Get your written estimate", "Free to request — binding only when confirmed in writing.")
+""" + related_links("/pricing/") + cta_band("Get your written estimate", "Free to request — binding only when confirmed in writing.")
     write(
         "pricing/index.html",
         head(
@@ -839,6 +885,7 @@ def build_service_areas() -> None:
 <p class="section-eyebrow" style="margin-top:2.5rem;">Tier B — Statewide by Scope</p>
 <h2>Mobile home &amp; light demolition focus</h2>
 <div class="area-grid">{links(tier_b)}</div>
+{related_links("/service-areas/")}
 </div></section>
 """ + cta_band("Working outside this list?", "Larger demolition jobs may still qualify — tell us the city.")
     write(
@@ -867,7 +914,7 @@ def build_service_areas() -> None:
         body = f"""
 {page_hero(h1, crumb([("Home","/"),("Service Areas","/service-areas/"),(short, f"/areas/{a['slug']}/")]), "/assets/images/projects/IMG_8286-scaled.jpg", meta)}
 <section class="section-pad"><div class="container split">
-<div class="prose reveal">{area_body(a)}</div>
+<div class="prose reveal">{area_body(a)}{related_links(f"/areas/{a['slug']}/")}</div>
 <div class="form-card reveal"><h3>Estimate for {esc(short)}</h3>{estimate_form("Mobile Home Demolition")}</div>
 </div></section>
 """
@@ -1103,7 +1150,7 @@ def main() -> None:
     apply_base_to_chrome()
     print("DONE")
     if BASE:
-        print(f"Preview base: {BASE}/  →  https://nicholasjknight.github.io{BASE}/")
+        print(f"Preview base: {BASE}/ -> https://nicholasjknight.github.io{BASE}/")
 
 
 if __name__ == "__main__":
