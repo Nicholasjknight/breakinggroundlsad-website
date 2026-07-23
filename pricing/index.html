@@ -18,13 +18,13 @@
   <meta property="og:url" content="https://breakinggroundlsad.com/pricing/" />
   <meta property="og:title" content="Pricing Guide | Breaking Ground" />
   <meta property="og:description" content="Planning ranges for mobile home demolition, shed removal, stump excavation, and land clearing in Central Florida." />
-  <meta property="og:image" content="https://breakinggroundlsad.com/assets/images/hero/IMG_8345-scaled.jpg" />
+  <meta property="og:image" content="https://breakinggroundlsad.com/assets/images/hero/IMG_0078-hero.jpg" />
   <meta property="og:site_name" content="Breaking Ground" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pricing Guide | Breaking Ground" />
   <meta name="twitter:description" content="Planning ranges for mobile home demolition, shed removal, stump excavation, and land clearing in Central Florida." />
-  <meta name="twitter:image" content="https://breakinggroundlsad.com/assets/images/hero/IMG_8345-scaled.jpg" />
+  <meta name="twitter:image" content="https://breakinggroundlsad.com/assets/images/hero/IMG_0078-hero.jpg" />
   <link rel="icon" href="/breakinggroundlsad-website/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="192x192" href="/breakinggroundlsad-website/assets/icons/cropped-Logo-Square-192x192.png" />
   <link rel="apple-touch-icon" href="/breakinggroundlsad-website/assets/icons/cropped-Logo-Square-192x192.png" />
@@ -50,7 +50,7 @@
       "email": "info@breakinggroundlsad.com",
       "foundingDate": "2024",
       "description": "Owner-operated demolition, land clearing, and site work across Central Florida",
-      "image": "https://breakinggroundlsad.com/assets/images/hero/IMG_8345-scaled.jpg",
+      "image": "https://breakinggroundlsad.com/assets/images/hero/IMG_0078-hero.jpg",
       "logo": {
         "@type": "ImageObject",
         "url": "https://breakinggroundlsad.com/assets/images/brand/Logo-Square-scaled-1024x1024.png"
@@ -163,25 +163,38 @@
 <div><a href="/breakinggroundlsad-website/contact/">Request Estimate</a></div></div>
 </aside>
 
-  <section class="cta-band">
-    <div class="container cta-band-grid">
-      <div>
-        <p class="section-eyebrow">Free Estimates</p>
+  <section class="cta-band cta-band--parallax" data-parallax-band aria-label="Request an estimate">
+    <div class="cta-band__bg" aria-hidden="true">
+      <img src="/breakinggroundlsad-website/assets/images/projects/IMG_9164-scaled.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async" />
+    </div>
+    <div class="cta-band__overlay" aria-hidden="true"></div>
+    <div class="container cta-band__inner">
+      <div class="cta-band__copy reveal">
+        <p class="section-eyebrow">Next step</p>
         <h2>Get your written estimate</h2>
-        <p>Free to request — binding only when confirmed in writing.</p>
-        <a class="btn btn-primary" href="tel:+18638999717">Call (863) 899-9717</a>
+        <p class="cta-band__lede">Free to request — binding only when confirmed in writing.</p>
+        <ul class="cta-band__points" aria-label="What to expect">
+          <li><span class="cta-band__mark" aria-hidden="true">01</span><span><strong>Free scope call</strong> — tell us about the structure, lot access, and your city.</span></li>
+          <li><span class="cta-band__mark" aria-hidden="true">02</span><span><strong>Photos help</strong> — text gate widths, overhead lines, and debris piles for faster quotes.</span></li>
+          <li><span class="cta-band__mark" aria-hidden="true">03</span><span><strong>Written confirmation</strong> — pricing and teardown scope agreed before work starts.</span></li>
+        </ul>
+        <div class="cta-band__actions">
+          <a class="btn btn-primary" href="tel:+18638999717">Call (863) 899-9717</a>
+          <a class="btn btn-ghost" href="/breakinggroundlsad-website/contact/">Full estimate form</a>
+        </div>
       </div>
-      <div class="form-card">
-        <h3>Request an Estimate</h3>
+      <aside class="cta-band__form hero-card reveal" aria-label="Quick estimate request">
+        <p class="hero-card__eyebrow">Free Estimate</p>
+        <h3 class="hero-card__title">Talk to the owners</h3>
+        <p class="hero-card__note">Quick form — Guy or Andrew will follow up by phone or text.</p>
         
-<form class="form-grid" data-bg-form method="POST" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" enctype="multipart/form-data">
+<form class="form-grid form-grid--hero" data-bg-form method="POST" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID">
   <input type="hidden" name="_next" value="https://breakinggroundlsad.com/thank-you/" />
   <input type="hidden" name="_subject" value="New estimate request — Breaking Ground" />
   <input type="hidden" name="page" value="" />
-  <label>Name<input name="name" required autocomplete="name" /></label>
-  <label>Phone<input name="phone" type="tel" required autocomplete="tel" /></label>
-  <label>Email<input name="email" type="email" autocomplete="email" /></label>
-  <label>Job location / city<input name="job_location" required /></label>
+  <label>Name<input name="name" required autocomplete="name" placeholder="Your name" /></label>
+  <label>Phone<input name="phone" type="tel" required autocomplete="tel" placeholder="(863) 899-9717" /></label>
+  <label>Job location / city<input name="job_location" required placeholder="City or address area" /></label>
   <label>Service needed
     <select name="service" required>
       <option value="">Select a service</option>
@@ -197,19 +210,11 @@
       <option value="Other">Other</option>
     </select>
   </label>
-  <label>Project details<textarea name="message" placeholder="Structure type, acreage, access notes…"></textarea></label>
-  <label>Best time to call<input name="best_time" /></label>
-  <label>Can we text you for photos?
-    <select name="can_text_photos" required>
-      <option value="Yes">Yes</option>
-      <option value="No">No</option>
-    </select>
-  </label>
-  <label>Photos (optional)<input name="photos" type="file" accept="image/*" multiple /></label>
-  <button class="btn btn-primary" type="submit">Request Free Estimate</button>
-  <p class="form-note">Estimates are free and informational. Final pricing is confirmed in writing before work begins.</p>
+  <label>Project details<textarea name="message" rows="2" placeholder="Structure type, access, timeline…"></textarea></label>
+  <button class="btn btn-primary" type="submit">Get Free Estimate</button>
+  <p class="form-note">Or call <a href="tel:+18638999717">(863) 899-9717</a>. Photos by text speed up quotes.</p>
 </form>
-      </div>
+      </aside>
     </div>
   </section>
   <div id="site-footer-include"></div>

@@ -93,6 +93,32 @@ def estimate_form(default_service: str = "") -> str:
 </form>"""
 
 
+def estimate_form_compact(default_service: str = "") -> str:
+    opts = "\n".join(
+        f'<option value="{esc(s["navLabel"])}"{" selected" if s["navLabel"] == default_service else ""}>{esc(s["navLabel"])}</option>'
+        for s in SERVICES
+    )
+    return f"""
+<form class="form-grid form-grid--hero" data-bg-form method="POST" action="{esc(FORM)}">
+  <input type="hidden" name="_next" value="{DOMAIN}/thank-you/" />
+  <input type="hidden" name="_subject" value="New estimate request — Breaking Ground" />
+  <input type="hidden" name="page" value="" />
+  <label>Name<input name="name" required autocomplete="name" placeholder="Your name" /></label>
+  <label>Phone<input name="phone" type="tel" required autocomplete="tel" placeholder="{esc(PHONE)}" /></label>
+  <label>Job location / city<input name="job_location" required placeholder="City or address area" /></label>
+  <label>Service needed
+    <select name="service" required>
+      <option value="">Select a service</option>
+      {opts}
+      <option value="Other">Other</option>
+    </select>
+  </label>
+  <label>Project details<textarea name="message" rows="2" placeholder="Structure type, access, timeline…"></textarea></label>
+  <button class="btn btn-primary" type="submit">Get Free Estimate</button>
+  <p class="form-note">Or call <a href="tel:{PHONE_TEL}">{esc(PHONE)}</a>. Photos by text speed up quotes.</p>
+</form>"""
+
+
 def schema_business(extra: list | None = None) -> str:
     graph = [
         {
@@ -263,18 +289,32 @@ def related_links(current: str = "") -> str:
 
 def cta_band(headline: str, blurb: str, service: str = "") -> str:
     return f"""
-  <section class="cta-band">
-    <div class="container cta-band-grid">
-      <div>
-        <p class="section-eyebrow">Free Estimates</p>
+  <section class="cta-band cta-band--parallax" data-parallax-band aria-label="Request an estimate">
+    <div class="cta-band__bg" aria-hidden="true">
+      <img src="/assets/images/projects/IMG_9164-scaled.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async" />
+    </div>
+    <div class="cta-band__overlay" aria-hidden="true"></div>
+    <div class="container cta-band__inner">
+      <div class="cta-band__copy reveal">
+        <p class="section-eyebrow">Next step</p>
         <h2>{esc(headline)}</h2>
-        <p>{esc(blurb)}</p>
-        <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {esc(PHONE)}</a>
+        <p class="cta-band__lede">{esc(blurb)}</p>
+        <ul class="cta-band__points" aria-label="What to expect">
+          <li><span class="cta-band__mark" aria-hidden="true">01</span><span><strong>Free scope call</strong> — tell us about the structure, lot access, and your city.</span></li>
+          <li><span class="cta-band__mark" aria-hidden="true">02</span><span><strong>Photos help</strong> — text gate widths, overhead lines, and debris piles for faster quotes.</span></li>
+          <li><span class="cta-band__mark" aria-hidden="true">03</span><span><strong>Written confirmation</strong> — pricing and teardown scope agreed before work starts.</span></li>
+        </ul>
+        <div class="cta-band__actions">
+          <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {esc(PHONE)}</a>
+          <a class="btn btn-ghost" href="/contact/">Full estimate form</a>
+        </div>
       </div>
-      <div class="form-card">
-        <h3>Request an Estimate</h3>
-        {estimate_form(service)}
-      </div>
+      <aside class="cta-band__form hero-card reveal" aria-label="Quick estimate request">
+        <p class="hero-card__eyebrow">Free Estimate</p>
+        <h3 class="hero-card__title">Talk to the owners</h3>
+        <p class="hero-card__note">Quick form — Guy or Andrew will follow up by phone or text.</p>
+        {estimate_form_compact(service)}
+      </aside>
     </div>
   </section>"""
 
@@ -488,16 +528,46 @@ def build_home() -> None:
         + f"""
   <section class="hero-stage">
     <div class="hero">
-      <div class="hero__media"><img src="/assets/images/hero/IMG_8286-scaled.jpg" alt="Breaking Ground equipment on a Florida job site" width="1920" height="1080" fetchpriority="high" /></div>
-      <div class="hero__overlay"></div>
-      <div class="hero__copy">
-        <p class="hero-eyebrow">Kathleen · Lakeland · Central Florida</p>
-        <h1>Breaking Ground</h1>
-        <p class="hero-lead">Mobile home demolition, light structure removal, and land services — father-and-son owned, equipment ready.</p>
-        <div class="hero__actions">
-          <a class="btn btn-primary" href="/contact/">Request Free Estimate</a>
-          <a class="btn btn-ghost" href="tel:{PHONE_TEL}">{esc(PHONE)}</a>
+      <div class="hero-slides" aria-hidden="true">
+        <div class="hero-slide active">
+          <img class="hero-slide-bg ken-burns hero-lcp-img" src="/assets/images/hero/IMG_0078-hero.jpg" alt="Breaking Ground Land Services and Demolition — Guy and Andrew with excavator and dump trucks" width="2400" height="1799" fetchpriority="high" decoding="async" />
         </div>
+        <div class="hero-slide">
+          <div class="hero-slide-bg ken-burns bg-hero-slide-2"></div>
+        </div>
+        <div class="hero-slide">
+          <div class="hero-slide-bg ken-burns bg-hero-slide-3"></div>
+        </div>
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <p class="hero-eyebrow">Kathleen · Lakeland · Central Florida</p>
+          <h1>Breaking Ground</h1>
+          <p class="hero-lead">Mobile home demolition, light structure removal, and land services — father-and-son owned, equipment ready.</p>
+          <div class="hero__actions">
+            <a class="btn btn-primary" href="/contact/">Request Free Estimate</a>
+            <a class="btn btn-ghost" href="tel:{PHONE_TEL}">{esc(PHONE)}</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Request a free estimate">
+          <p class="hero-card__eyebrow">Free Estimate</p>
+          <h2 class="hero-card__title">Talk to the owners</h2>
+          <p class="hero-card__note">Tell us about the structure or lot — we’ll follow up by phone or text.</p>
+          <form class="form-grid form-grid--hero" data-bg-form method="POST" action="{esc(FORM)}" enctype="multipart/form-data">
+            <input type="hidden" name="_next" value="{DOMAIN}/thank-you/" />
+            <input type="hidden" name="_subject" value="New estimate request — Breaking Ground" />
+            <input type="hidden" name="page" value="" />
+            <label>Name<input name="name" required autocomplete="name" placeholder="Your name" /></label>
+            <label>Phone<input name="phone" type="tel" required autocomplete="tel" placeholder="{esc(PHONE)}" /></label>
+            <label>Job location / city<input name="job_location" required placeholder="City or address area" /></label>
+            <label>What do you need?
+              <textarea name="message" rows="2" required placeholder="e.g. singlewide demo in Lakeland"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Get Free Estimate</button>
+            <p class="form-note">Or call <a href="tel:{PHONE_TEL}">{esc(PHONE)}</a>. Photos by text speed up estimates.</p>
+          </form>
+        </aside>
       </div>
     </div>
   </section>
@@ -1121,14 +1191,23 @@ No CRM, GBP automation, or dynamic review widgets in Phase 1.
 
 
 def apply_base_to_chrome() -> None:
-    """Rewrite root-absolute paths in shared chrome for project Pages."""
-    if not BASE:
-        return
+    """Rewrite root-absolute paths in shared chrome for project Pages.
+
+    Idempotent: strips any existing siteBase prefix first, then applies once.
+    """
+    import re
+
     for name in ("header.html", "footer.html"):
         path = ROOT / name
         text = path.read_text(encoding="utf-8")
-        text = text.replace('href="/', f'href="{BASE}/')
-        text = text.replace('src="/', f'src="{BASE}/')
+        # Normalize previously prefixed paths back to root-absolute
+        if BASE:
+            text = re.sub(rf'(?:{re.escape(BASE)})+/', '/', text)
+            text = text.replace('href="/', f'href="{BASE}/')
+            text = text.replace('src="/', f'src="{BASE}/')
+        else:
+            # Custom-domain mode: ensure chrome is root-absolute, not project-prefixed
+            text = re.sub(r'(?:/breakinggroundlsad-website)+/', '/', text)
         path.write_text(text, encoding="utf-8")
         print("rewrote", name)
 

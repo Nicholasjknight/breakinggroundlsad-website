@@ -18,20 +18,20 @@
   <meta property="og:url" content="https://breakinggroundlsad.com/" />
   <meta property="og:title" content="Breaking Ground | Mobile Home Demolition &amp; Land Services in Central Florida" />
   <meta property="og:description" content="Owner-operated mobile home demolition, shed removal, land clearing, and site work based in Kathleen, FL. Free estimates." />
-  <meta property="og:image" content="https://breakinggroundlsad.com/assets/images/hero/IMG_8345-scaled.jpg" />
+  <meta property="og:image" content="https://breakinggroundlsad.com/assets/images/hero/IMG_0078-hero.jpg" />
   <meta property="og:site_name" content="Breaking Ground" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Breaking Ground | Mobile Home Demolition &amp; Land Services in Central Florida" />
   <meta name="twitter:description" content="Owner-operated mobile home demolition, shed removal, land clearing, and site work based in Kathleen, FL. Free estimates." />
-  <meta name="twitter:image" content="https://breakinggroundlsad.com/assets/images/hero/IMG_8345-scaled.jpg" />
+  <meta name="twitter:image" content="https://breakinggroundlsad.com/assets/images/hero/IMG_0078-hero.jpg" />
   <link rel="icon" href="/breakinggroundlsad-website/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="192x192" href="/breakinggroundlsad-website/assets/icons/cropped-Logo-Square-192x192.png" />
   <link rel="apple-touch-icon" href="/breakinggroundlsad-website/assets/icons/cropped-Logo-Square-192x192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/breakinggroundlsad-website/assets/css/style.css?v=hero3" />
+  <link rel="stylesheet" href="/breakinggroundlsad-website/assets/css/style.css" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -50,7 +50,7 @@
       "email": "info@breakinggroundlsad.com",
       "foundingDate": "2024",
       "description": "Owner-operated demolition, land clearing, and site work across Central Florida",
-      "image": "https://breakinggroundlsad.com/assets/images/hero/IMG_8345-scaled.jpg",
+      "image": "https://breakinggroundlsad.com/assets/images/hero/IMG_0078-hero.jpg",
       "logo": {
         "@type": "ImageObject",
         "url": "https://breakinggroundlsad.com/assets/images/brand/Logo-Square-scaled-1024x1024.png"
@@ -96,14 +96,14 @@
 }
 </script>
 </head>
-<body class="home-page">
+<body>
   <div id="site-header-include"></div>
 
   <section class="hero-stage">
     <div class="hero">
       <div class="hero-slides" aria-hidden="true">
         <div class="hero-slide active">
-          <img class="hero-slide-bg ken-burns hero-lcp-img" src="/breakinggroundlsad-website/assets/images/hero/IMG_8345-scaled.jpg" alt="Breaking Ground demolition and site work in Central Florida" width="1920" height="1080" fetchpriority="high" decoding="async" />
+          <img class="hero-slide-bg ken-burns hero-lcp-img" src="/breakinggroundlsad-website/assets/images/hero/IMG_0078-hero.jpg" alt="Breaking Ground Land Services and Demolition — Guy and Andrew with excavator and dump trucks" width="2400" height="1799" fetchpriority="high" decoding="async" />
         </div>
         <div class="hero-slide">
           <div class="hero-slide-bg ken-burns bg-hero-slide-2"></div>
@@ -113,14 +113,34 @@
         </div>
       </div>
       <div class="hero__overlay"></div>
-      <div class="hero__copy">
-        <p class="hero-eyebrow">Kathleen · Lakeland · Central Florida</p>
-        <h1>Breaking Ground</h1>
-        <p class="hero-lead">Mobile home demolition, light structure removal, and land services — father-and-son owned, equipment ready.</p>
-        <div class="hero__actions">
-          <a class="btn btn-primary" href="/breakinggroundlsad-website/contact/">Request Free Estimate</a>
-          <a class="btn btn-ghost" href="tel:+18638999717">(863) 899-9717</a>
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <p class="hero-eyebrow">Kathleen · Lakeland · Central Florida</p>
+          <h1>Breaking Ground</h1>
+          <p class="hero-lead">Mobile home demolition, light structure removal, and land services — father-and-son owned, equipment ready.</p>
+          <div class="hero__actions">
+            <a class="btn btn-primary" href="/breakinggroundlsad-website/contact/">Request Free Estimate</a>
+            <a class="btn btn-ghost" href="tel:+18638999717">(863) 899-9717</a>
+          </div>
         </div>
+        <aside class="hero-card" aria-label="Request a free estimate">
+          <p class="hero-card__eyebrow">Free Estimate</p>
+          <h2 class="hero-card__title">Talk to the owners</h2>
+          <p class="hero-card__note">Tell us about the structure or lot — we’ll follow up by phone or text.</p>
+          <form class="form-grid form-grid--hero" data-bg-form method="POST" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" enctype="multipart/form-data">
+            <input type="hidden" name="_next" value="https://breakinggroundlsad.com/thank-you/" />
+            <input type="hidden" name="_subject" value="New estimate request — Breaking Ground" />
+            <input type="hidden" name="page" value="" />
+            <label>Name<input name="name" required autocomplete="name" placeholder="Your name" /></label>
+            <label>Phone<input name="phone" type="tel" required autocomplete="tel" placeholder="(863) 899-9717" /></label>
+            <label>Job location / city<input name="job_location" required placeholder="City or address area" /></label>
+            <label>What do you need?
+              <textarea name="message" rows="2" required placeholder="e.g. singlewide demo in Lakeland"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Get Free Estimate</button>
+            <p class="form-note">Or call <a href="tel:+18638999717">(863) 899-9717</a>. Photos by text speed up estimates.</p>
+          </form>
+        </aside>
       </div>
     </div>
   </section>
@@ -259,25 +279,38 @@
     </div>
   </section>
 
-  <section class="cta-band">
-    <div class="container cta-band-grid">
-      <div>
-        <p class="section-eyebrow">Free Estimates</p>
+  <section class="cta-band cta-band--parallax" data-parallax-band aria-label="Request an estimate">
+    <div class="cta-band__bg" aria-hidden="true">
+      <img src="/breakinggroundlsad-website/assets/images/projects/IMG_9164-scaled.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async" />
+    </div>
+    <div class="cta-band__overlay" aria-hidden="true"></div>
+    <div class="container cta-band__inner">
+      <div class="cta-band__copy reveal">
+        <p class="section-eyebrow">Next step</p>
         <h2>Ready to clear the structure or the lot?</h2>
-        <p>Tell us about your mobile home, shed, or land clearing project. Free estimates for Central Florida and statewide-by-scope jobs.</p>
-        <a class="btn btn-primary" href="tel:+18638999717">Call (863) 899-9717</a>
+        <p class="cta-band__lede">Tell us about your mobile home, shed, or land clearing project. Free estimates for Central Florida and statewide-by-scope jobs.</p>
+        <ul class="cta-band__points" aria-label="What to expect">
+          <li><span class="cta-band__mark" aria-hidden="true">01</span><span><strong>Free scope call</strong> — tell us about the structure, lot access, and your city.</span></li>
+          <li><span class="cta-band__mark" aria-hidden="true">02</span><span><strong>Photos help</strong> — text gate widths, overhead lines, and debris piles for faster quotes.</span></li>
+          <li><span class="cta-band__mark" aria-hidden="true">03</span><span><strong>Written confirmation</strong> — pricing and teardown scope agreed before work starts.</span></li>
+        </ul>
+        <div class="cta-band__actions">
+          <a class="btn btn-primary" href="tel:+18638999717">Call (863) 899-9717</a>
+          <a class="btn btn-ghost" href="/breakinggroundlsad-website/contact/">Full estimate form</a>
+        </div>
       </div>
-      <div class="form-card">
-        <h3>Request an Estimate</h3>
+      <aside class="cta-band__form hero-card reveal" aria-label="Quick estimate request">
+        <p class="hero-card__eyebrow">Free Estimate</p>
+        <h3 class="hero-card__title">Talk to the owners</h3>
+        <p class="hero-card__note">Quick form — Guy or Andrew will follow up by phone or text.</p>
         
-<form class="form-grid" data-bg-form method="POST" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" enctype="multipart/form-data">
+<form class="form-grid form-grid--hero" data-bg-form method="POST" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID">
   <input type="hidden" name="_next" value="https://breakinggroundlsad.com/thank-you/" />
   <input type="hidden" name="_subject" value="New estimate request — Breaking Ground" />
   <input type="hidden" name="page" value="" />
-  <label>Name<input name="name" required autocomplete="name" /></label>
-  <label>Phone<input name="phone" type="tel" required autocomplete="tel" /></label>
-  <label>Email<input name="email" type="email" autocomplete="email" /></label>
-  <label>Job location / city<input name="job_location" required /></label>
+  <label>Name<input name="name" required autocomplete="name" placeholder="Your name" /></label>
+  <label>Phone<input name="phone" type="tel" required autocomplete="tel" placeholder="(863) 899-9717" /></label>
+  <label>Job location / city<input name="job_location" required placeholder="City or address area" /></label>
   <label>Service needed
     <select name="service" required>
       <option value="">Select a service</option>
@@ -293,23 +326,15 @@
       <option value="Other">Other</option>
     </select>
   </label>
-  <label>Project details<textarea name="message" placeholder="Structure type, acreage, access notes…"></textarea></label>
-  <label>Best time to call<input name="best_time" /></label>
-  <label>Can we text you for photos?
-    <select name="can_text_photos" required>
-      <option value="Yes">Yes</option>
-      <option value="No">No</option>
-    </select>
-  </label>
-  <label>Photos (optional)<input name="photos" type="file" accept="image/*" multiple /></label>
-  <button class="btn btn-primary" type="submit">Request Free Estimate</button>
-  <p class="form-note">Estimates are free and informational. Final pricing is confirmed in writing before work begins.</p>
+  <label>Project details<textarea name="message" rows="2" placeholder="Structure type, access, timeline…"></textarea></label>
+  <button class="btn btn-primary" type="submit">Get Free Estimate</button>
+  <p class="form-note">Or call <a href="tel:+18638999717">(863) 899-9717</a>. Photos by text speed up quotes.</p>
 </form>
-      </div>
+      </aside>
     </div>
   </section>
   <div id="site-footer-include"></div>
   <script src="/breakinggroundlsad-website/includes.js" defer></script>
-  <script src="/breakinggroundlsad-website/assets/js/main.js?v=hero3" defer></script>
+  <script src="/breakinggroundlsad-website/assets/js/main.js" defer></script>
 </body>
 </html>

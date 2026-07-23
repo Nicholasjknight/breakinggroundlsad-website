@@ -3,6 +3,7 @@
     initHeroSlider();
     initReveals();
     initForms();
+    initParallaxBands();
   }
 
   if (document.readyState === 'loading') {
@@ -81,4 +82,43 @@ function initHeroSlider() {
       startSlider();
     }
   });
+}
+
+function initParallaxBands() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const bands = document.querySelectorAll('[data-parallax-band]');
+  if (!bands.length) return;
+
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const vh = Math.max(window.innerHeight, 1);
+
+    bands.forEach((band) => {
+      const img = band.querySelector('.cta-band__bg img');
+      if (!img) return;
+
+      const rect = band.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > vh) return;
+
+      const range = vh + band.offsetHeight;
+      const progress = Math.max(0, Math.min(1, (vh - rect.top) / range));
+      const maxShift = band.offsetHeight * 0.24;
+      const shift = Math.round((progress - 0.5) * 2 * maxShift);
+      img.style.setProperty('--bg-shift', `${shift}px`);
+    });
+  }
+
+  function queue() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue, { passive: true });
+  queue();
 }

@@ -4,6 +4,7 @@
 **Site folder:** `E:\All Client Websites\Breaking Ground Land Services and Demolition`  
 **GitHub org:** `Breaking-Ground-Land-Services`  
 **GitHub repo:** `Breaking-Ground-Land-Services/breakinggroundlsad-website`  
+**Org profile:** https://github.com/Breaking-Ground-Land-Services  
 **Preview:** https://breaking-ground-land-services.github.io/breakinggroundlsad-website/  
 **Pages:** GitHub Pages → custom domain `breakinggroundlsad.com` (see LAUNCH-CHECKLIST.md)
 
