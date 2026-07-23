@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/breakinggroundlsad-website/assets/css/style.css" />
+  <link rel="stylesheet" href="/breakinggroundlsad-website/assets/css/style.css?v=herobridge4" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,7 +96,7 @@
 }
 </script>
 </head>
-<body>
+<body class="home-page">
   <div id="site-header-include"></div>
 
   <section class="hero-stage">
@@ -123,7 +123,7 @@
             <a class="btn btn-ghost" href="tel:+18638999717">(863) 899-9717</a>
           </div>
         </div>
-        <aside class="hero-card" aria-label="Request a free estimate">
+        <aside class="hero-card hero-card--desktop" aria-label="Request a free estimate">
           <p class="hero-card__eyebrow">Free Estimate</p>
           <h2 class="hero-card__title">Talk to the owners</h2>
           <p class="hero-card__note">Tell us about the structure or lot — we’ll follow up by phone or text.</p>
@@ -143,6 +143,25 @@
         </aside>
       </div>
     </div>
+    <aside class="hero-card hero-card--bridge" aria-label="Request a free estimate">
+      <div class="hero-card__bridge-head">
+        <p class="hero-card__eyebrow">Free Estimate</p>
+        <h2 class="hero-card__title">Talk to the owners</h2>
+      </div>
+      <form class="form-grid form-grid--hero form-grid--hero-bridge" data-bg-form method="POST" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" enctype="multipart/form-data">
+        <input type="hidden" name="_next" value="https://breakinggroundlsad.com/thank-you/" />
+        <input type="hidden" name="_subject" value="New estimate request — Breaking Ground" />
+        <input type="hidden" name="page" value="" />
+        <label>Name<input name="name" required autocomplete="name" placeholder="Your name" /></label>
+        <label>Phone<input name="phone" type="tel" required autocomplete="tel" placeholder="(863) 899-9717" /></label>
+        <label>Job location / city<input name="job_location" required placeholder="City or address area" /></label>
+        <label>What do you need?
+          <textarea name="message" rows="2" required placeholder="e.g. singlewide demo in Lakeland"></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Get Free Estimate</button>
+        <p class="form-note">Or call <a href="tel:+18638999717">(863) 899-9717</a>. Photos by text speed up estimates.</p>
+      </form>
+    </aside>
   </section>
   <section class="section-pad">
     <div class="container split">
